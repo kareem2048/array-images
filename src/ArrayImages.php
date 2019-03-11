@@ -46,8 +46,8 @@ class ArrayImages extends Field
                                                 $attribute)
     {
         if ($request->exists($requestAttribute)) {
-            $model->{$attribute} = $request[$requestAttribute];
-
+            $img_array = explode(',', $request[$requestAttribute]);
+            $model->{$attribute} = $img_array;
         }
     }
 }
