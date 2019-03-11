@@ -1,5 +1,4 @@
 <?php
-
 namespace Halimtuhu\ArrayImages;
 
 use Illuminate\Support\Facades\Storage;
@@ -21,9 +20,11 @@ class FieldController extends BaseController
         $images = $request->images;
         $data = array();
 
-        foreach ($images as $image) {
+        foreach ($images as $image)
+        {
             $savedImage = Storage::disk($disk)
                 ->putFile($path, $image);
+
             $data[] = Storage::url($savedImage);
         }
 
@@ -36,4 +37,6 @@ class FieldController extends BaseController
 
         return "success";
     }
+
+
 }

@@ -3,6 +3,7 @@
 namespace Halimtuhu\ArrayImages;
 
 use Laravel\Nova\Fields\Field;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class ArrayImages extends Field
 {
@@ -38,7 +39,6 @@ class ArrayImages extends Field
             'path' => $path
         ]);
     }
-
 
     protected function fillAttributeFromRequest(NovaRequest $request,
                                                 $requestAttribute,
