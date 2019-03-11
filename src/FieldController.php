@@ -1,4 +1,5 @@
 <?php
+
 namespace Halimtuhu\ArrayImages;
 
 use Illuminate\Support\Facades\Storage;
@@ -20,18 +21,13 @@ class FieldController extends BaseController
         $images = $request->images;
         $data = array();
 
-        foreach ($images as $image)
-        {
+        foreach ($images as $image) {
             $savedImage = Storage::disk($disk)
                 ->putFile($path, $image);
-
-            $data[] = [
-                'image' => $image->getClientOriginalName(),
-                'url' => Storage::url($savedImage)
-            ];
+            $data[] = Storage::url($savedImage);
         }
 
-        return $data;
+        return array_values($data);
     }
 
     public function delete($image)
